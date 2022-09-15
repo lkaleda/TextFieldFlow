@@ -56,14 +56,6 @@ fun Screen(state: ViewState, onInput: (UserInput) -> Unit) {
     )
 }
 
-data class ViewState(
-    val username: String = ""
-)
-
-sealed class UserInput {
-    class UsernameChanged(val text: String) : UserInput()
-}
-
 class TextFieldViewModel(
     coroutineContext: CoroutineContext
 ) : ViewModel() {
@@ -86,6 +78,14 @@ class TextFieldViewModel(
             }
         }
     }
+}
+
+data class ViewState(
+    val username: String = ""
+)
+
+sealed class UserInput {
+    class UsernameChanged(val text: String) : UserInput()
 }
 
 class TextFieldViewModelFactory(
